@@ -6,7 +6,6 @@ const manifest = defineManifest({
   manifest_version: 3,
   name: "conifer",
   version: "1.0.0",
-  action: { default_popup: "index.html" },
   background: {
     service_worker: "src/background.ts",
     type: "module"
@@ -24,8 +23,6 @@ export default defineConfig({
         plugins: ["@emotion/babel-plugin"],
       },
     }),
-    crx({
-      manifest,
-    }),
+    crx({ manifest }),
   ],
 });
