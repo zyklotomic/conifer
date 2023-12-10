@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.11"
 fastapi = "^0.104.1"
 psycopg = "^3.1.14"
+together = "^0.2.10"
 
 
 [build-system]
