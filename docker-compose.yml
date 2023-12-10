@@ -1,0 +1,11 @@
+services:
+
+  db:
+    image: zyklotomic/pgvector
+    ports:
+      - "5431:5432"
+    environment:
+      POSTGRES_PASSWORD: example_password
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
