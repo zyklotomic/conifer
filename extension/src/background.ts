@@ -4,7 +4,7 @@ const BACKEND_URL = "http://localhost:3000";
 
 chrome.contextMenus.create({
   id: "viewpoints-extension",
-  title: "Gather opposing viewpoints",
+  title: "Analyze with Conifer",
   contexts: ["selection"]
 })
 
