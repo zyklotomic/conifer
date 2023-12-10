@@ -1,12 +1,13 @@
 from fastapi import FastAPI
 import psycopg, os, requests, together
 from pgvector.psycopg import register_vector
+import numpy as np
 
 api_key = os.environ["LLM_API_KEY"]
 DB_CONN = "host=localhost port=5432 user=postgres" \
     " password=example_password"
+together.api_key = api_key
 
-import numpy as np
 
 def get_embedding(text, model = "togethercomputer/GPT-NeoXT-Chat-Base-20B"):
   endpoint_url = "https://api.together.xyz/api/v1/embeddings"
