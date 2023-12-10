@@ -4,7 +4,7 @@ import { crx, defineManifest } from "@crxjs/vite-plugin";
 
 const manifest = defineManifest({
   manifest_version: 3,
-  name: "conifer",
+  name: "Conifer",
   version: "1.0.0",
   background: {
     service_worker: "src/background.ts",
