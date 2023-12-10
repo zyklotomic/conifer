@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
+import { Oval } from 'react-loader-spinner';
 
 function Content() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -58,34 +59,59 @@ function Content() {
         color: 'black',
         border: '1px solid grey',
         padding: '25px',
+        margin: '20px',
+        marginTop: '0',
+        marginLeft: '0',
         paddingTop: '10px',
         borderRadius: '5px',
-        fontSize: '12px',
+        fontSize: '14px',
         fontFamily: 'Sans-Serif',
         minWidth: '450px',
         maxWidth: '600px'
       }}
     >
       {
-        false
-          ? 'Loading...?'
+        isLoading
+          ? <div css={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100%',
+            marginTop: '12px'
+          }}>
+            <Oval
+              height={64}
+              width={64}
+              color="#000000"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible
+              ariaLabel='oval-loading'
+              secondaryColor="#000000"
+              strokeWidth={2}
+              strokeWidthSecondary={2}
+            />
+          </div>
           : (
             <>
-              <h2>Conifer's Opinion</h2>
-              <p>{opinionData.opinion}</p>
-              <h4>Additional Reading:</h4>
+              <h2>Conifer's Analysis</h2>
+              <p>{opinionData.opinion.substring(14)}</p>
+              {opinionData?.sources?.length > 0 && <h4 css={{ marginBottom: '0px' }}>Additional Reading:</h4>}
               <ul>
-                {opinionData.sources.map((source: any) => 
-                  <li key={source.uri}>
-                    <a href={source.url} target='_blank'>{source.headline}</a>
-                  </li>)
+                {opinionData.sources.map((source: any) =>
+                  <a css={{ color: 'black' }} href={source.web_url} target='_blank'>
+                    <li key={source.uri}>
+                      {source.headline ?? source.web_url.substring(8)}
+                    </li>
+                  </a>)
                 }
               </ul>
+              <footer><b>Disclaimer</b>: this opinion is AI generated and may not be accurate or biased.</footer>
             </>
           )
       }
     </div>
-   : null
+      : null
   )
 }
 

@@ -1,6 +1,6 @@
 import ky from "ky";
 
-const BACKEND_URL = "http://localhost:8000";
+const BACKEND_URL = "https://4032-128-84-95-222.ngrok-free.app/";
 
 chrome.contextMenus.create({
   id: "viewpoints-extension",

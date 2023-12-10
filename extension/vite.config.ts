@@ -11,7 +11,13 @@ const manifest = defineManifest({
     type: "module"
   },
   content_scripts: [{ js: ["src/main.tsx"], matches: ["https://*/*"] }],
-  permissions: ["contextMenus"]
+  permissions: ["contextMenus"],
+  action: {
+    default_icon: 'favicon.png',
+  },
+  icons: {
+    32: 'favicon.png'
+  }
 });
 
 // https://vitejs.dev/config/
