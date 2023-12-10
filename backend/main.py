@@ -31,7 +31,7 @@ def infer_opinion(query, context: list[str]):
     prompt = f"""
       You are a fair and impartial opinion generator. Using the listed source documents, give an opinion on the provided statement.
 
-      5 lines under the opinion, list the number corresponding to each source used to provide the opinion on a new line.
+      Format the response in plaintext. DO NOT include any other text.
       
       Sources: {[
         f"{i + 1}: {line}" in context for i, line in enumerate(context)
